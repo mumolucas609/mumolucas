@@ -1,690 +1,473 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lucas Mumo Mutiso | Finance Professional</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101c2d">
+  <meta name="description" content="Portfolio of Lucas Mumo Mutiso — Applied Economics graduate, finance operations professional and aspiring data analyst.">
+  <meta property="og:title" content="Lucas Mumo Mutiso | Finance Operations & Data Analytics">
+  <meta property="og:description" content="Applied Economics, finance operations and practical data analysis projects.">
+  <meta property="og:type" content="website">
+  <title>Lucas Mumo Mutiso | Finance Operations & Data Analytics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --navy: #0a1628;
-      --deep: #112240;
-      --gold: #c9a84c;
-      --gold-light: #e8c97a;
-      --cream: #f5f0e8;
-      --muted: #8892a4;
+      --ink: #152235;
+      --ink-soft: #24364d;
+      --muted: #64748b;
+      --paper: #f5f7fa;
       --white: #ffffff;
-      --card: #162032;
+      --line: #e4e9f0;
+      --gold: #c6a15b;
+      --gold-soft: #f2e8d5;
+      --teal: #3c807b;
+      --teal-soft: #e5f1ef;
+      --shadow: 0 18px 50px rgba(21, 34, 53, .09);
+      --radius: 18px;
+      --max: 1120px;
     }
 
-    html { scroll-behavior: smooth; }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
     body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--navy);
-      color: var(--cream);
-      overflow-x: hidden;
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "DM Sans", Arial, sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
     }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+    .skip-link {
+      position: absolute; left: 1rem; top: -4rem; z-index: 200;
+      background: var(--white); color: var(--ink); padding: .7rem 1rem; border-radius: 8px;
+    }
+    .skip-link:focus { top: 1rem; }
+    .container { width: min(var(--max), calc(100% - 3rem)); margin-inline: auto; }
 
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1.2rem 6%;
-      background: rgba(10,22,40,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(201,168,76,0.15);
-      animation: fadeDown 0.8s ease both;
+    /* Navigation */
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(16, 28, 45, .96);
+      border-bottom: 1px solid rgba(255,255,255,.09);
+      backdrop-filter: blur(14px);
     }
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      color: var(--gold);
-      letter-spacing: 0.5px;
+    .nav-wrap { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .brand { display: inline-flex; align-items: center; gap: .75rem; color: var(--white); text-decoration: none; font-family: Manrope, sans-serif; font-weight: 800; letter-spacing: .02em; }
+    .brand-mark {
+      display: grid; place-items: center; width: 38px; height: 38px; border-radius: 11px;
+      background: var(--gold); color: var(--ink); font-size: .82rem; letter-spacing: .03em;
     }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.88rem;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      transition: color 0.2s;
-    }
+    .brand-name { font-size: .98rem; }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { color: #c5cfdb; text-decoration: none; font-size: .88rem; font-weight: 600; transition: color .2s ease; }
     .nav-links a:hover { color: var(--gold); }
+    .nav-cta { padding: .65rem 1rem; border: 1px solid rgba(198,161,91,.65); border-radius: 999px; color: #f3dfb7 !important; }
+    .menu-toggle { display: none; border: 1px solid rgba(255,255,255,.2); background: transparent; color: white; border-radius: 9px; padding: .55rem .75rem; font: inherit; }
 
-    /* ── HERO ── */
-    #hero {
-      min-height: 100vh;
-      display: flex; align-items: center;
-      padding: 0 6%;
-      position: relative;
-      overflow: hidden;
+    /* Hero */
+    .hero {
+      position: relative; overflow: hidden; color: var(--white);
+      background: radial-gradient(circle at 82% 20%, rgba(60,128,123,.24), transparent 27%),
+                  radial-gradient(circle at 12% 90%, rgba(198,161,91,.16), transparent 30%),
+                  linear-gradient(125deg, #101c2d 0%, #172b43 58%, #20394d 100%);
+      padding: 6.8rem 0 6.5rem;
     }
-    .hero-bg {
-      position: absolute; inset: 0; z-index: 0;
-      background:
-        radial-gradient(ellipse 60% 60% at 80% 50%, rgba(201,168,76,0.07) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 40% at 10% 80%, rgba(17,34,64,0.8) 0%, transparent 60%);
+    .hero::after {
+      content: ""; position: absolute; width: 440px; height: 440px; right: -180px; bottom: -270px;
+      border: 1px solid rgba(255,255,255,.12); border-radius: 50%; box-shadow: 0 0 0 45px rgba(255,255,255,.025), 0 0 0 90px rgba(255,255,255,.02);
+      pointer-events: none;
     }
-    .hero-line {
-      position: absolute; top: 0; left: 42%;
-      width: 1px; height: 100%;
-      background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.2), transparent);
-    }
-    .hero-content { position: relative; z-index: 1; max-width: 680px; }
-    .hero-tag {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid rgba(201,168,76,0.3);
-      padding: 0.35rem 0.9rem;
-      border-radius: 2px;
-      margin-bottom: 1.6rem;
-      animation: fadeUp 0.8s 0.2s ease both;
-    }
-    .hero-name {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 6vw, 5rem);
-      font-weight: 700;
-      line-height: 1.05;
-      color: var(--white);
-      margin-bottom: 1rem;
-      animation: fadeUp 0.8s 0.35s ease both;
-    }
-    .hero-name span { color: var(--gold); }
-    .hero-role {
-      font-size: 1.1rem;
-      font-weight: 300;
-      color: var(--muted);
-      margin-bottom: 1.8rem;
-      letter-spacing: 0.3px;
-      animation: fadeUp 0.8s 0.5s ease both;
-    }
-    .hero-desc {
-      font-size: 1rem;
-      line-height: 1.75;
-      color: #a0afc0;
-      max-width: 520px;
-      margin-bottom: 2.5rem;
-      animation: fadeUp 0.8s 0.65s ease both;
-    }
-    .hero-ctas {
-      display: flex; gap: 1rem; flex-wrap: wrap;
-      animation: fadeUp 0.8s 0.8s ease both;
-    }
-    .btn-primary {
-      background: var(--gold);
-      color: var(--navy);
-      padding: 0.8rem 1.8rem;
-      border-radius: 3px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      text-decoration: none;
-      letter-spacing: 0.3px;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
-    .btn-outline {
-      border: 1px solid rgba(201,168,76,0.4);
-      color: var(--gold);
-      padding: 0.8rem 1.8rem;
-      border-radius: 3px;
-      font-weight: 500;
-      font-size: 0.9rem;
-      text-decoration: none;
-      transition: border-color 0.2s, background 0.2s, transform 0.2s;
-    }
-    .btn-outline:hover {
-      border-color: var(--gold);
-      background: rgba(201,168,76,0.06);
-      transform: translateY(-2px);
-    }
+    .hero-inner { position: relative; z-index: 1; max-width: 820px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: .6rem; color: #ead6ad; font-size: .76rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; display: inline-block; width: 26px; height: 2px; background: var(--gold); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { font-family: Manrope, sans-serif; }
+    .hero h1 { max-width: 850px; margin: 1.15rem 0 1rem; font-size: clamp(2.6rem, 7vw, 5.25rem); line-height: 1.04; letter-spacing: -.055em; }
+    .hero h1 span { color: #e3c58f; }
+    .hero-role { margin-bottom: 1rem; color: #dbe4ee; font-size: clamp(1rem, 2vw, 1.25rem); font-weight: 600; }
+    .hero-copy { max-width: 690px; color: #b8c6d5; font-size: 1.04rem; line-height: 1.85; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .85rem; margin-top: 2rem; }
+    .button { display: inline-flex; justify-content: center; align-items: center; gap: .55rem; min-height: 46px; padding: .75rem 1.15rem; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: .9rem; transition: transform .2s ease, background .2s ease, border-color .2s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--gold); color: #172236; }
+    .button-primary:hover { background: #d7b879; }
+    .button-outline { border: 1px solid rgba(255,255,255,.28); color: var(--white); }
+    .button-outline:hover { border-color: var(--gold); }
+    .hero-note { margin-top: 2.2rem; color: #9fb0c2; font-size: .82rem; }
 
-    /* ── SECTIONS ── */
-    section { padding: 6rem 6%; }
-    .section-label {
-      font-size: 0.72rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.6rem;
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: 3.5rem;
-    }
-    .section-title span { color: var(--gold); }
-    .divider {
-      width: 48px; height: 2px;
-      background: var(--gold);
-      margin: 1rem 0 3rem;
-    }
+    /* Shared sections */
+    section { padding: 5.4rem 0; }
+    .section-head { max-width: 690px; margin-bottom: 2.3rem; }
+    .section-kicker { margin-bottom: .55rem; color: #94713b; font-size: .75rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+    .section-title { margin-bottom: .8rem; color: var(--ink); font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.15; letter-spacing: -.045em; }
+    .section-intro { margin-bottom: 0; color: var(--muted); font-size: 1rem; }
+    .surface { background: var(--white); }
+    .soft-section { background: #edf1f5; }
 
-    /* ── ABOUT ── */
-    #about { background: var(--deep); }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-    .about-text p {
-      font-size: 1rem;
-      line-height: 1.85;
-      color: #a0afc0;
-      margin-bottom: 1.2rem;
-    }
-    .about-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-    .stat-card {
-      background: var(--card);
-      border: 1px solid rgba(201,168,76,0.1);
-      border-radius: 6px;
-      padding: 1.6rem;
-      text-align: center;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .stat-card:hover { border-color: rgba(201,168,76,0.4); transform: translateY(-3px); }
-    .stat-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      color: var(--gold);
-      font-weight: 700;
-    }
-    .stat-label {
-      font-size: 0.82rem;
-      color: var(--muted);
-      margin-top: 0.3rem;
-      letter-spacing: 0.3px;
-    }
+    /* About */
+    .about-grid { display: grid; grid-template-columns: 1.35fr .85fr; gap: 3.5rem; align-items: start; }
+    .about-copy p { color: #526176; margin-bottom: 1rem; }
+    .about-callout { margin-top: 1.6rem; padding: 1.15rem 1.3rem; border-left: 3px solid var(--gold); border-radius: 0 12px 12px 0; background: #fbf7ef; color: #536074; }
+    .about-panel { padding: 1.5rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); box-shadow: var(--shadow); }
+    .about-panel h3 { margin-bottom: 1rem; font-size: 1rem; }
+    .fact { display: flex; justify-content: space-between; gap: 1rem; padding: .75rem 0; border-bottom: 1px solid var(--line); font-size: .9rem; }
+    .fact:last-child { border-bottom: 0; }
+    .fact span:first-child { color: var(--muted); }
+    .fact strong { text-align: right; font-weight: 700; }
 
-    /* ── EXPERIENCE ── */
-    #experience { background: var(--navy); }
-    .timeline { position: relative; padding-left: 2rem; }
-    .timeline::before {
-      content: '';
-      position: absolute; left: 0; top: 0; bottom: 0;
-      width: 1px;
-      background: linear-gradient(to bottom, var(--gold), rgba(201,168,76,0.1));
-    }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 3rem;
-      padding-left: 2rem;
-      opacity: 0;
-      transform: translateX(-20px);
-      animation: slideIn 0.6s ease forwards;
-    }
-    .timeline-item:nth-child(1) { animation-delay: 0.1s; }
-    .timeline-item:nth-child(2) { animation-delay: 0.25s; }
-    .timeline-item:nth-child(3) { animation-delay: 0.4s; }
-    .timeline-dot {
-      position: absolute; left: -2.45rem; top: 0.3rem;
-      width: 10px; height: 10px;
-      background: var(--gold);
-      border-radius: 50%;
-      border: 2px solid var(--navy);
-      box-shadow: 0 0 0 3px rgba(201,168,76,0.2);
-    }
-    .timeline-date {
-      font-size: 0.78rem;
-      color: var(--gold);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 0.4rem;
-    }
-    .timeline-role {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      color: var(--white);
-      margin-bottom: 0.2rem;
-    }
-    .timeline-company {
-      font-size: 0.88rem;
-      color: var(--muted);
-      margin-bottom: 0.8rem;
-    }
-    .timeline-desc {
-      font-size: 0.95rem;
-      line-height: 1.75;
-      color: #8892a4;
-    }
+    /* Experience */
+    .experience-list { display: grid; gap: 1rem; }
+    .experience-card { display: grid; grid-template-columns: 190px 1fr; gap: 1.5rem; padding: 1.6rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
+    .experience-date { color: #94713b; font-size: .82rem; font-weight: 800; letter-spacing: .04em; }
+    .experience-card h3 { margin: 0 0 .25rem; font-size: 1.08rem; }
+    .experience-org { margin-bottom: .7rem; color: var(--muted); font-size: .9rem; }
+    .experience-card ul { margin: 0; padding-left: 1.15rem; color: #526176; font-size: .92rem; }
+    .experience-card li + li { margin-top: .35rem; }
 
-    /* ── PROJECTS ── */
-    #projects { background: var(--deep); }
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.8rem;
-    }
-    .project-card {
-      background: var(--card);
-      border: 1px solid rgba(201,168,76,0.1);
-      border-radius: 8px;
-      padding: 2rem;
-      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
-      position: relative;
-      overflow: hidden;
-    }
-    .project-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--gold), transparent);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .project-card:hover {
-      border-color: rgba(201,168,76,0.35);
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    }
-    .project-card:hover::before { opacity: 1; }
-    .project-icon {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-    }
-    .project-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      color: var(--white);
-      margin-bottom: 0.6rem;
-    }
-    .project-desc {
-      font-size: 0.9rem;
-      line-height: 1.7;
-      color: var(--muted);
-      margin-bottom: 1.2rem;
-    }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .tag {
-      font-size: 0.72rem;
-      padding: 0.25rem 0.65rem;
-      border-radius: 2px;
-      background: rgba(201,168,76,0.1);
-      color: var(--gold);
-      letter-spacing: 0.5px;
-    }
+    /* Projects */
+    .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; }
+    .project-card { display: flex; flex-direction: column; min-height: 100%; padding: 1.65rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); box-shadow: 0 8px 28px rgba(21,34,53,.045); transition: transform .2s ease, box-shadow .2s ease; }
+    .project-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .project-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+    .project-icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 13px; background: var(--teal-soft); color: #286b67; font-size: 1.2rem; }
+    .project-type { color: #738196; font-size: .74rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .project-card h3 { margin-bottom: .65rem; font-size: 1.17rem; line-height: 1.35; }
+    .project-card p { margin-bottom: 1rem; color: #5c6a7e; font-size: .92rem; }
+    .project-points { margin: 0 0 1.25rem; padding-left: 1.1rem; color: #5c6a7e; font-size: .88rem; }
+    .project-points li + li { margin-top: .3rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: auto; }
+    .tag { padding: .32rem .62rem; border-radius: 999px; background: #f0f3f7; color: #4c5d72; font-size: .73rem; font-weight: 700; }
+    .project-footnote { margin: 1.2rem 0 0; color: #78869a; font-size: .8rem; }
 
-    /* ── SKILLS ── */
-    #skills { background: var(--navy); }
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-    }
-    .skill-group {
-      background: var(--card);
-      border: 1px solid rgba(201,168,76,0.08);
-      border-radius: 6px;
-      padding: 1.5rem;
-    }
-    .skill-group-title {
-      font-size: 0.78rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-    .skill-item {
-      display: flex; justify-content: space-between; align-items: center;
-      margin-bottom: 0.75rem;
-    }
-    .skill-name { font-size: 0.9rem; color: #a0afc0; }
-    .skill-bar-wrap {
-      width: 100px; height: 3px;
-      background: rgba(255,255,255,0.08);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    .skill-bar {
-      height: 100%;
-      background: linear-gradient(90deg, var(--gold), var(--gold-light));
-      border-radius: 2px;
-    }
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+    .skill-card { padding: 1.45rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
+    .skill-card h3 { margin-bottom: .9rem; font-size: 1rem; }
+    .skill-card p { margin: 0; color: #5c6a7e; font-size: .9rem; line-height: 1.9; }
+    .skill-note { margin-top: 1.2rem; color: #738196; font-size: .83rem; }
 
-    /* ── CONTACT ── */
-    #contact { background: var(--deep); text-align: center; }
-    .contact-inner { max-width: 580px; margin: 0 auto; }
-    .contact-inner p {
-      color: #8892a4;
-      font-size: 1rem;
-      line-height: 1.75;
-      margin-bottom: 2.5rem;
-    }
-    .contact-links {
-      display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap;
-    }
+    /* Education */
+    .education-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 1.2rem; }
+    .education-card, .credential-card { padding: 1.5rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
+    .education-card h3, .credential-card h3 { margin-bottom: .35rem; font-size: 1.05rem; }
+    .education-card p, .credential-card p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .credential-list { display: grid; gap: .9rem; }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--navy);
-      text-align: center;
-      padding: 2rem 6%;
-      border-top: 1px solid rgba(201,168,76,0.1);
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-    footer span { color: var(--gold); }
+    /* Contact + footer */
+    .contact-section { color: var(--white); background: var(--ink); }
+    .contact-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .contact-section .section-kicker { color: #e3c58f; }
+    .contact-section .section-title { color: var(--white); }
+    .contact-section .section-intro { max-width: 620px; color: #b8c6d5; }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: .75rem; flex-shrink: 0; }
+    .contact-actions .button-outline { border-color: rgba(255,255,255,.25); }
+    footer { padding: 1.5rem 0; color: #9aa9ba; background: #101c2d; font-size: .82rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+    footer a { color: #e3c58f; text-decoration: none; }
 
-    /* ── ANIMATIONS ── */
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-16px); }
-      to   { opacity: 1; transform: translateY(0); }
+    @media (max-width: 820px) {
+      .about-grid, .education-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .contact-inner { align-items: flex-start; flex-direction: column; }
     }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
+    @media (max-width: 680px) {
+      .container { width: min(100% - 2rem, var(--max)); }
+      .nav-wrap { min-height: 66px; }
+      .menu-toggle { display: inline-flex; }
+      .nav-links {
+        display: none; position: absolute; top: 66px; left: 0; right: 0; padding: 1rem;
+        flex-direction: column; align-items: stretch; gap: 0; background: #101c2d;
+        border-bottom: 1px solid rgba(255,255,255,.1);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { display: block; padding: .8rem .6rem; }
+      .nav-cta { text-align: center; margin-top: .4rem; }
+      .hero { padding: 5rem 0 4.6rem; }
+      .hero h1 { font-size: clamp(2.55rem, 13vw, 4.2rem); }
+      section { padding: 4rem 0; }
+      .experience-card { grid-template-columns: 1fr; gap: .5rem; padding: 1.25rem; }
+      .project-grid, .skills-grid { grid-template-columns: 1fr; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
     }
-    @keyframes slideIn {
-      to { opacity: 1; transform: translateX(0); }
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      nav { padding: 1rem 5%; }
-      .nav-links { gap: 1.2rem; }
-      section { padding: 4rem 5%; }
-      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .hero-name { font-size: 2.6rem; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
     }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- NAV -->
-  <nav>
-    <div class="nav-logo">LMM</div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-line"></div>
-    <div class="hero-content">
-      <div class="hero-tag">Finance &amp; Economics</div>
-      <h1 class="hero-name">Lucas Mumo<br/><span>Mutiso</span></h1>
-      <p class="hero-role">Dispatch & Invoicing Officer · Optica Ltd &nbsp;|&nbsp; B.Sc. Applied Economics with IT</p>
-      <p class="hero-desc">
-        Organized and detail-oriented Applied Economics graduate with hands-on experience 
-        in finance operations, reconciliations, dispatch coordination, and insurance administration. 
-        Passionate about leveraging data analysis to drive financial insight and long-term value.
-      </p>
-      <div class="hero-ctas">
-        <a href="#experience" class="btn-primary">View My Work</a>
-        <a href="#contact" class="btn-outline">Get In Touch</a>
-      </div>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="Lucas Mumo Mutiso, home">
+        <span class="brand-mark">LMM</span>
+        <span class="brand-name">Lucas Mumo Mutiso</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+      <ul class="nav-links" id="primary-nav">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a class="nav-cta" href="#contact">Contact</a></li>
+      </ul>
     </div>
-  </section>
+  </header>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="about-grid">
-      <div class="about-text">
-        <p class="section-label">About Me</p>
-        <h2 class="section-title">Finance mind.<br/><span>Detail-driven.</span></h2>
-        <p>
-          I'm a B.Sc. Applied Economics with IT graduate from Maseno University, 
-          with practical experience spanning finance operations, bank and M-Pesa 
-          reconciliations, dispatch coordination, insurance administration, and ERP systems.
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="container hero-inner">
+        <p class="eyebrow">Finance Operations · Applied Economics · Data</p>
+        <h1>Lucas Mumo<br><span>Mutiso.</span></h1>
+        <p class="hero-role">Finance Operations Professional &amp; Aspiring Data Analyst</p>
+        <p class="hero-copy">
+          An Applied Economics with IT graduate building on practical experience in invoicing,
+          retail operations and financial records. I use Excel and Power Query to organise data,
+          explore patterns and present information in a way that supports better decisions.
         </p>
-        <p>
-          From supermarket operations to hospital finance and now optical retail, 
-          I've consistently adapted quickly and delivered accuracy in fast-paced environments. 
-          I'm now actively building skills in data analysis — combining my economics 
-          foundation and IT background to grow into data-driven finance roles.
-        </p>
-        <a href="https://drive.google.com/drive/folders/17F9n7rtCZdYQJyhdWZG8OC34-ZFCJoSN" target="_blank" class="btn-outline" style="display:inline-block; margin-top:1rem;">
-          📁 View Full Portfolio (Drive)
-        </a>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">Explore my projects <span aria-hidden="true">↗</span></a>
+          <a class="button button-outline" href="https://www.linkedin.com/in/lucas-mumo-2680502b0/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
+        </div>
+        <p class="hero-note">Based in Kenya · Interested in finance, business operations and practical analytics</p>
       </div>
-      <div class="about-stats">
-        <div class="stat-card">
-          <div class="stat-number">B.Sc.</div>
-          <div class="stat-label">Applied Economics with IT — Maseno University</div>
+    </section>
+
+    <section class="surface" id="about">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <p class="section-kicker">A little about me</p>
+          <h2 class="section-title">Connecting finance, operations <span style="color:var(--teal)">and data.</span></h2>
+          <p>
+            I hold a Bachelor of Science in Applied Economics with IT from Maseno University.
+            My experience has given me exposure to finance operations, invoicing, retail processes,
+            payment records and workplace technology.
+          </p>
+          <p>
+            I am developing my data-analysis skills through hands-on projects, with Excel and
+            Power Query as my current tools of focus. I enjoy taking information that is scattered
+            or difficult to interpret and turning it into something structured, useful and clear.
+          </p>
+          <div class="about-callout">
+            My interests sit at the intersection of financial operations, business analysis and
+            data-informed decision-making.
+          </div>
         </div>
-        <div class="stat-card">
-          <div class="stat-number">3+</div>
-          <div class="stat-label">Years Work & Attachment Experience</div>
+        <aside class="about-panel" aria-label="Profile details">
+          <h3>At a glance</h3>
+          <div class="fact"><span>Education</span><strong>B.Sc. Applied Economics with IT</strong></div>
+          <div class="fact"><span>University</span><strong>Maseno University</strong></div>
+          <div class="fact"><span>Graduation</span><strong>December 2024</strong></div>
+          <div class="fact"><span>Current focus</span><strong>Excel &amp; Power Query</strong></div>
+          <div class="fact"><span>Professional interests</span><strong>Finance &amp; Analytics</strong></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="experience" class="soft-section">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Professional background</p>
+          <h2 class="section-title">Experience built through <span style="color:var(--teal)">doing.</span></h2>
+          <p class="section-intro">A selection of roles and practical exposure across finance operations, retail and IT support.</p>
         </div>
-        <div class="stat-card">
-          <div class="stat-number">📊</div>
-          <div class="stat-label">Pursuing Data Analysis Skills</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">3</div>
-          <div class="stat-label">Industry Certifications</div>
+        <div class="experience-list">
+          <article class="experience-card">
+            <div class="experience-date">December 2025 – Present</div>
+            <div>
+              <h3>Invoicing Officer · Finance Operations</h3>
+              <p class="experience-org">Optica Ltd · Kenya</p>
+              <ul>
+                <li>Support invoicing and billing documentation within finance operations.</li>
+                <li>Work with structured records and spreadsheets to support accurate processing and reporting.</li>
+                <li>Coordinate with relevant teams to resolve documentation and order-related queries.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="experience-card">
+            <div class="experience-date">August 2024 – November 2025</div>
+            <div>
+              <h3>Shop Assistant / Cashier</h3>
+              <p class="experience-org">Penjos Supermarkets · Machakos, Kenya</p>
+              <ul>
+                <li>Handled point-of-sale transactions, receipts and payment processing.</li>
+                <li>Maintained cashbook and transaction records and supported routine reconciliation.</li>
+                <li>Used Excel and store systems to support daily operational and record-keeping tasks.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="experience-card">
+            <div class="experience-date">June – August 2023</div>
+            <div>
+              <h3>IT Department · Industrial Attachment</h3>
+              <p class="experience-org">Bishop Kioko Catholic Hospital · Machakos, Kenya</p>
+              <ul>
+                <li>Completed industrial attachment within the hospital's IT department.</li>
+                <li>Gained practical exposure to workplace technology, IT support and digital systems in a healthcare environment.</li>
+              </ul>
+            </div>
+          </article>
         </div>
       </div>
+    </section>
+
+    <section id="projects" class="surface">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Selected work</p>
+          <h2 class="section-title">Projects &amp; <span style="color:var(--teal)">case studies.</span></h2>
+          <p class="section-intro">Practical work that demonstrates how I approach data, analysis and business questions.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-top">
+              <span class="project-icon" aria-hidden="true">▦</span>
+              <span class="project-type">Featured · Excel project</span>
+            </div>
+            <h3>Student Enrolment &amp; Fee Analysis Dashboard</h3>
+            <p>
+              A practice project using a 135-record student dataset. I cleaned and standardised
+              fields, assessed data completeness, analysed enrolment and fee patterns, and built
+              a dashboard to bring the key findings together.
+            </p>
+            <ul class="project-points">
+              <li>Used Power Query for data cleaning, transformation and quality checks.</li>
+              <li>Used PivotTables and PivotCharts to summarise course, gender, age and fee data.</li>
+              <li>Added formula-driven KPI cards and a data-completeness summary.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Excel 2021</span><span class="tag">Power Query</span>
+              <span class="tag">PivotTables</span><span class="tag">Dashboarding</span>
+            </div>
+            <p class="project-footnote">Practice dataset. Identifiable records and the original source workbook are not published.</p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <span class="project-icon" aria-hidden="true">⌁</span>
+              <span class="project-type">Undergraduate research</span>
+            </div>
+            <h3>Foreign Investment, Trade &amp; Economic Growth in Kenya</h3>
+            <p>
+              Undergraduate research examining the relationship between foreign direct investment,
+              imports, exports and Kenya's economic growth.
+            </p>
+            <ul class="project-points">
+              <li>Applied an economics perspective to a question about national development.</li>
+              <li>Explored the role of trade and investment indicators in economic performance.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Applied Economics</span><span class="tag">Research</span>
+              <span class="tag">Kenya</span>
+            </div>
+            <p class="project-footnote">A summary and supporting materials can be added here when the academic files are reorganised.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="soft-section">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Capabilities</p>
+          <h2 class="section-title">Skills &amp; <span style="color:var(--teal)">tools.</span></h2>
+          <p class="section-intro">A practical view of the tools and work areas I have used or developed through employment and projects.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-card">
+            <h3>Data &amp; spreadsheets</h3>
+            <p>Microsoft Excel 2021 · Data cleaning · Formulas and functions · PivotTables · PivotCharts · Dashboard design · Power Query transformations</p>
+          </article>
+          <article class="skill-card">
+            <h3>Finance &amp; operations</h3>
+            <p>Invoicing and billing support · Payment records · Cashbook maintenance · Bank and M-Pesa reconciliation support · Receipting · POS and ERP workflows</p>
+          </article>
+          <article class="skill-card">
+            <h3>Research &amp; communication</h3>
+            <p>Applied economics · Desk research · Data interpretation · Documentation · Microsoft Office · Google Workspace · Cross-team coordination</p>
+          </article>
+        </div>
+        <p class="skill-note">I prefer to describe skills through the work and projects that demonstrate them rather than assign subjective percentage ratings.</p>
+      </div>
+    </section>
+
+    <section id="education" class="surface">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Education &amp; development</p>
+          <h2 class="section-title">Learning is <span style="color:var(--teal)">ongoing.</span></h2>
+        </div>
+        <div class="education-grid">
+          <article class="education-card">
+            <p class="section-kicker">Education</p>
+            <h3>Bachelor of Science in Applied Economics with IT</h3>
+            <p>Maseno University · Graduated December 2024</p>
+          </article>
+          <div class="credential-list">
+            <article class="credential-card">
+              <h3>Absa Ready to Work</h3>
+              <p>Work-readiness programme · 2025</p>
+            </article>
+            <article class="credential-card">
+              <h3>Cisco IT Essentials</h3>
+              <p>Completed through Maseno University · 2021</p>
+            </article>
+            <article class="credential-card">
+              <h3>Academic documents &amp; certificates</h3>
+              <p><a href="https://drive.google.com/drive/folders/17F9n7rtCZdYQJyhdWZG8OC34-ZFCJoSN" target="_blank" rel="noopener noreferrer">View selected documents on Google Drive ↗</a></p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="container contact-inner">
+        <div>
+          <p class="section-kicker">Let's connect</p>
+          <h2 class="section-title">Good work starts with <span style="color:#e3c58f">a conversation.</span></h2>
+          <p class="section-intro">Open to conversations about finance operations, data analysis, business processes and opportunities to learn and contribute.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="button button-primary" href="https://www.linkedin.com/in/lucas-mumo-2680502b0/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a class="button button-outline" href="https://github.com/mumolucas609" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a class="button button-outline" href="https://drive.google.com/drive/folders/17F9n7rtCZdYQJyhdWZG8OC34-ZFCJoSN" target="_blank" rel="noopener noreferrer">Google Drive ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Lucas Mumo Mutiso</span>
+      <span>Built with care · <a href="#home">Back to top ↑</a></span>
     </div>
-  </section>
+  </footer>
 
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <p class="section-label">Career</p>
-    <h2 class="section-title">Work <span>Experience</span></h2>
-    <div class="divider"></div>
-    <div class="timeline">
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.nav-links');
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-date">Nov 2025 – Present</div>
-        <div class="timeline-role">Dispatch & Invoicing Officer</div>
-        <div class="timeline-company">Optica Ltd, Kenya</div>
-        <div class="timeline-desc">
-          Joined as Dispatch Officer managing logistics coordination and order fulfilment, 
-          currently transitioning into an Invoicing role. Responsible for financial 
-          documentation, invoice accuracy, and cross-departmental coordination to 
-          ensure smooth billing cycles and compliance with financial controls.
-        </div>
-      </div>
+    menuButton.addEventListener('click', () => {
+      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!isOpen));
+      navigation.classList.toggle('open', !isOpen);
+    });
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-date">Aug 2024 – Nov 2025</div>
-        <div class="timeline-role">Cashier & Operations Support Officer</div>
-        <div class="timeline-company">Penjos Supermarkets Ltd, Machakos</div>
-        <div class="timeline-desc">
-          Managed bank and M-Pesa reconciliations ensuring accuracy and accountability. 
-          Prepared financial reports, cash books, and statutory returns. Administered 
-          employee and company insurance documentation. Operated POS and ERP systems 
-          (Med360), and supported inventory checks, supplier payments, and operational 
-          record keeping.
-        </div>
-      </div>
+    navigation.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navigation.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+      });
+    });
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-date">Jun – Aug 2023</div>
-        <div class="timeline-role">IT & Accounts Support (Industrial Attachment)</div>
-        <div class="timeline-company">Bishop Kioko Catholic Hospital, Machakos</div>
-        <div class="timeline-desc">
-          Assisted with accounts receivable processes and payment tracking. Supported 
-          insurance claim verification and documentation. Gained practical exposure to 
-          ERP and hospital management software workflows, and assisted with financial 
-          reporting and data entry.
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-date">2020 – Dec 2024</div>
-        <div class="timeline-role">B.Sc. Applied Economics with IT</div>
-        <div class="timeline-company">Maseno University, Kenya</div>
-        <div class="timeline-desc">
-          Graduated December 2024. Relevant courses: Accounting, Finance, IT Systems, 
-          and Business Economics. Gained strong analytical foundations in economic 
-          modelling, data interpretation, and financial operations.
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <p class="section-label">Portfolio</p>
-    <h2 class="section-title">Academic <span>Projects</span></h2>
-    <div class="divider"></div>
-    <div class="projects-grid">
-
-      <div class="project-card">
-        <div class="project-icon">🏦</div>
-        <div class="project-title">Bank & M-Pesa Reconciliation System</div>
-        <div class="project-desc">
-          Managed daily bank and M-Pesa reconciliations at Penjos Supermarkets, 
-          maintaining financial accuracy across high-volume retail transactions in 
-          a fast-paced environment. Ensured accountability and zero discrepancies.
-        </div>
-        <div class="project-tags">
-          <span class="tag">Reconciliation</span>
-          <span class="tag">M-Pesa</span>
-          <span class="tag">Excel</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-icon">🏥</div>
-        <div class="project-title">Hospital Finance & Insurance Support</div>
-        <div class="project-desc">
-          During industrial attachment at Bishop Kioko Catholic Hospital, supported 
-          accounts receivable, insurance claim verification, and ERP workflows — 
-          gaining cross-sector exposure to healthcare finance operations.
-        </div>
-        <div class="project-tags">
-          <span class="tag">Accounts Receivable</span>
-          <span class="tag">Insurance</span>
-          <span class="tag">ERP</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-icon">📜</div>
-        <div class="project-title">Certifications & Professional Development</div>
-        <div class="project-desc">
-          KRA Compliance Certificate (2025) · ABSA ReadyToWork Workplace Readiness · 
-          IT Essentials via Cisco Networking Academy (Maseno University) · 
-      
-        </div>
-        <div class="project-tags">
-          <span class="tag">KRA</span>
-          <span class="tag">Cisco IT</span>
-          <span class="tag">ABSA</span>
-          <span class="tag">CPA</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <p class="section-label">Capabilities</p>
-    <h2 class="section-title">Skills &amp; <span>Tools</span></h2>
-    <div class="divider"></div>
-    <div class="skills-grid">
-
-      <div class="skill-group">
-        <div class="skill-group-title">Finance & Operations</div>
-        <div class="skill-item">
-          <span class="skill-name">Bank & M-Pesa Reconciliation</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Accounts Receivable</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Insurance Administration</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Financial Reporting</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <div class="skill-group-title">IT & Tools</div>
-        <div class="skill-item">
-          <span class="skill-name">Microsoft Excel & Word</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">ERP Systems (Med360)</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">POS Systems</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Google Workspace</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <div class="skill-group-title">Growing Into</div>
-        <div class="skill-item">
-          <span class="skill-name">Data Analysis</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:45%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Excel Advanced (Pivot/Charts)</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:60%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Invoicing & Billing</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:70%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Financial Dashboards</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:40%"></div></div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="contact-inner">
-      <p class="section-label">Let's Connect</p>
-      <h2 class="section-title">Get In <span>Touch</span></h2>
-      <div class="divider" style="margin: 1rem auto 2rem;"></div>
-      <p>
-        Whether you're a potential employer, collaborator, or just want to connect 
-        — I'm always open to meaningful conversations about finance, economics, 
-        and career growth.
-      </p>
-      <div class="contact-links">
-        <a href="https://www.linkedin.com/in/lucas-mutiso-2680502b0" target="_blank" class="btn-primary">
-          🔗 LinkedIn Profile
-        </a>
-        <a href="https://drive.google.com/drive/folders/17F9n7rtCZdYQJyhdWZG8OC34-ZFCJoSN" target="_blank" class="btn-outline">
-          📁 Google Drive Portfolio
-        </a>
-        <a href="/cdn-cgi/l/email-protection#d0bda5bdbfbca5b3b1a3e6e0e990b7bdb1b9bcfeb3bfbd" class="btn-outline">
-          ✉️ <span class="__cf_email__" data-cfemail="066b736b696a7365677530363f46616b676f6a2865696b"></span>
-        </a>
-    
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
